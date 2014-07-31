@@ -16,13 +16,14 @@
 
 	@end-module-documentation
 */
-var bump = function bump( method, URL, catcher ){
+var bump = function bump( method, URL, catcher, requestOverride ){
 	/*:
 		@meta-configuration:
 			{
 				"method:required": "string",
 				"URL:required": "string",
-				"catcher:required": "function"
+				"catcher:required": "function",
+				"requestOverride:optional": "function"
 			}
 		@end-meta-configuration
 	*/
@@ -49,6 +50,10 @@ var bump = function bump( method, URL, catcher ){
 				throw error;
 			}
 		}
+	}
+
+	if( typeof requestOverride != "undefined" ){
+		requestOverride( request );
 	}
 
 	request.onreadstatechange = function onReadyStateChange( ){
