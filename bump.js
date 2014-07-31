@@ -54,8 +54,9 @@ var bump = function bump( method, URL, catcher, requestOverride ){
 
 	request.open( method, URL );
 
+	var requestParameterData = "";
 	if( typeof requestOverride != "undefined" ){
-		requestOverride( request );
+		requestParameterData = requestOverride( request );
 	}
 
 	request.onreadstatechange = function onReadyStateChange( ){
@@ -67,7 +68,7 @@ var bump = function bump( method, URL, catcher, requestOverride ){
 	};
 
 	try{
-		request.send( );
+		request.send( requestParameterData );
 
 	}catch( error ){
 		console.error( error );
