@@ -63,9 +63,10 @@ var bump = function bump( method, URL, catcher ){
 
 	try{
 		request.send( );
-		
+
 	}catch( error ){
 		console.error( error );
+		
 		catcher.call( request, error );
 	}
 
