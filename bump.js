@@ -52,6 +52,8 @@ var bump = function bump( method, URL, catcher, requestOverride ){
 		}
 	}
 
+	request.open( method, URL );
+
 	if( typeof requestOverride != "undefined" ){
 		requestOverride( request );
 	}
@@ -63,8 +65,6 @@ var bump = function bump( method, URL, catcher, requestOverride ){
 
 		catcher.apply( request, parameterList );
 	};
-
-	request.open( method, URL );
 
 	try{
 		request.send( );
