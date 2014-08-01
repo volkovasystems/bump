@@ -59,7 +59,7 @@ var bump = function bump( method, URL, catcher, requestOverride ){
 		requestParameterData = requestOverride( request );
 	}
 
-	request.onreadstatechange = function onReadyStateChange( ){
+	request.onreadystatechange = function onReadyStateChange( ){
 		var parameterList = Array.prototype.slice.call( arguments );
 
 		parameterList.splice( 0, 1, null );
